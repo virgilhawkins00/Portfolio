@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import contactImg from "../assets/img/contact-img.svg";
@@ -36,7 +37,6 @@ export const Contact = () => {
     setButtonText("Send");
     let result = await response.json();
     setFormDetails(formInitialDetails);
-    // eslint-disable-next-line eqeqeq
     if (result.code == 200) {
       setStatus({ succes: true, message: 'Message sent successfully'});
     } else {
@@ -94,5 +94,3 @@ export const Contact = () => {
     </section>
   )
 }
-
-export default Contact

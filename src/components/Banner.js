@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable no-unused-vars */
 import { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import headerImg from "../assets/img/header-img.svg";
@@ -10,8 +12,8 @@ export const Banner = () => {
   const [isDeleting, setIsDeleting] = useState(false);
   const [text, setText] = useState('');
   const [delta, setDelta] = useState(300 - Math.random() * 100);
-  const [, setIndex] = useState(1);
-  const toRotate = [ "Web Developer", "Web Designer", "UI/UX Designer" ];
+  const [index, setIndex] = useState(1);
+  const toRotate = [ "Web Developer", "Mobile Developer", "UI/UX Designer", "Software Developer" ];
   const period = 2000;
 
   useEffect(() => {
@@ -20,10 +22,8 @@ export const Banner = () => {
     }, delta);
 
     return () => { clearInterval(ticker) };
-  // eslint-disable-next-line no-use-before-define
-  }, [delta, text, tick])
+  }, [text])
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   const tick = () => {
     let i = loopNum % toRotate.length;
     let fullText = toRotate[i];
@@ -58,8 +58,12 @@ export const Banner = () => {
               {({ isVisible }) =>
               <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
                 <span className="tagline">Welcome to my Portfolio</span>
-                <h1>{`Hi! I'm Judy`} <span className="txt-rotate" dataPeriod="1000" data-rotate='[ "Web Developer", "Web Designer", "UI/UX Designer" ]'><span className="wrap">{text}</span></span></h1>
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                <h1>{`Hi! I'm Alex`} <span className="txt-rotate" dataPeriod="1000" data-rotate='[ "Web Developer", "Mobile Developer", "UI/UX Designer", "Software Developer" ]'><span className="wrap">{text}</span></span></h1>
+                  <p>I am a web developer with 8 years of experience. I have experience with Python, JavaScript, Java, PHP, HTML, CSS, Tailwind, SCSS, UX/UI and I am learning Vue. I also master the ReactJS, NodeJS, React-Native and Expo frameworks. With the Laravel, PostgreSQL, MariaDB, MongoDB, Xeno and MySQL databases.
+
+I am a creative and innovative developer, with a strong sense of aesthetics. I am able to understand the user's needs and develop solutions that are both functional and beautiful. I am also an efficient and productive developer, with a history of delivering projects on time and within budget.
+
+I am always looking for new challenges and I am always willing to learn new things. </p>
                   <button onClick={() => console.log('connect')}>Let’s Connect <ArrowRightCircle size={25} /></button>
               </div>}
             </TrackVisibility>
@@ -77,5 +81,3 @@ export const Banner = () => {
     </section>
   )
 }
-
-export default Banner
