@@ -7,9 +7,17 @@ import projImg3 from "../assets/img/project-img3.png";
 import projImg4 from "../assets/img/project-img4.png";
 import projImg5 from "../assets/img/project-img5.png";
 import projImg6 from "../assets/img/project-img6.png";
+import projImg7 from "../assets/img/project-img7.png";
+import projImg8 from "../assets/img/project-img8.png";
+import projImg9 from "../assets/img/project-img9.jpg";
+import projImg10 from "../assets/img/project-img10.jpg";
+import projImg11 from "../assets/img/project-img11.jpg";
 import colorSharp2 from "../assets/img/color-sharp2.png";
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
+
+
+
 
 export const Projects = () => {
 
@@ -18,6 +26,7 @@ export const Projects = () => {
       title: "Personal Finance",
       description: "ReactJS, NodeJS, ExpressJS, MongoDB",
       imgUrl: projImg1,
+      
     },
     {
       title: "Fit100 - Healthcare Application",
@@ -44,7 +53,34 @@ export const Projects = () => {
       description: "HTML, CSS, Javascript",
       imgUrl: projImg6,
     },
+    {
+      title: "Food Delivery",
+      description: "React, NextJS, Tailwind, Auth, LocalStorage",
+      imgUrl: projImg7,
+    },
+    {
+      title: "Manager Admin",
+      description: "React, SASS, Auth, LocalStorage",
+      imgUrl: projImg8,
+    },
+    {
+      title: "Calendar App",
+      description: "Python, Dash, Dash Core Components, Dash Table, Pandas",
+      imgUrl: projImg9,
+    },
+    {
+      title: "My Budget Tracker",
+      description: "Python, Dash, Dash Core Components, Dash HTML, Dash Bootstrap, Plotly, Pandas",
+      imgUrl: projImg10,
+    },
+    {
+      title: "BFit Dashboard Admin",
+      description: "ReactJS, NodeJS, ExpressJS, MongoDB, PHP",
+      imgUrl: projImg11,
+    },
   ];
+
+  
 
   return (
     <section className="project" id="project">
@@ -62,10 +98,10 @@ export const Projects = () => {
                       <Nav.Link eventKey="first">Jobs</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                      <Nav.Link eventKey="second">Tab 2</Nav.Link>
+                      <Nav.Link eventKey="second">About Me</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                      <Nav.Link eventKey="third">Tab 3</Nav.Link>
+                      <Nav.Link eventKey="third">Jobs 3</Nav.Link>
                     </Nav.Item>
                   </Nav>
                   <Tab.Content id="slideInUp" className={isVisible ? "animate__animated animate__slideInUp" : ""}>
@@ -84,10 +120,32 @@ export const Projects = () => {
                       </Row>
                     </Tab.Pane>
                     <Tab.Pane eventKey="section">
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quam, quod neque provident velit, rem explicabo excepturi id illo molestiae blanditiis, eligendi dicta officiis asperiores delectus quasi inventore debitis quo.</p>
+                    <Row>
+                        {
+                          projects.map((project, index) => {
+                            return (
+                              <ProjectCard
+                                key={index}
+                                {...project}
+                                />
+                            )
+                          })
+                        }
+                      </Row>
                     </Tab.Pane>
                     <Tab.Pane eventKey="third">
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quam, quod neque provident velit, rem explicabo excepturi id illo molestiae blanditiis, eligendi dicta officiis asperiores delectus quasi inventore debitis quo.</p>
+                    <Row>
+                        {
+                          projects.map((projects2, index) => {
+                            return (
+                              <ProjectCard
+                                key={index}
+                                {...projects2}
+                                />
+                            )
+                          })
+                        }
+                      </Row>
                     </Tab.Pane>
                   </Tab.Content>
                 </Tab.Container>
